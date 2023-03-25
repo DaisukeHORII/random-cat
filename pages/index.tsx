@@ -52,10 +52,10 @@ const IndexPage: NextPage = () => {
             alt="cat"
           />
         )}
+        <ButtonContainer>
+          <Button onClick={handleButtonClick}>もっと見る</Button>
+        </ButtonContainer>
       </ImageContainer>
-      <ButtonContainer>
-        <Button onClick={handleButtonClick}>別の画像を見る</Button>
-      </ButtonContainer>
     </PageContainer>
   );
 };
@@ -73,7 +73,10 @@ const PageContainer = styled.div`
 
 const ButtonContainer = styled.div`
   position: absolute;
-  bottom: 2rem;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 `;
 
 const Button = styled.button`
@@ -91,10 +94,12 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
 const CatImageElement = styled.img`
   max-width: 50%;
+  height: auto;
 `;
 
 const LoadingText = styled.p<{ isLoading: boolean }>`
